@@ -19,3 +19,11 @@ $ sudo apt install path_to_deb_file
 #or
 $ sudo dpkg -i path_to_deb_file
 ```
+
+# Tips
+
+Version 
+
+```
+$ lsb_release
+```
