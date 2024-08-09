@@ -25,5 +25,5 @@ $ sudo dpkg -i path_to_deb_file
 Version 
 
 ```
-$ lsb_release
+$ lsb_release -a
 ```
