@@ -2,7 +2,8 @@
 
 
 ## [curl](./curl/README.md)
-
+## [Samba](./samba/README.md)
+## [Mount](./mount.md)
 
 
 ## Schedule Tasks
