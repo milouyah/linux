@@ -1,4 +1,7 @@
 
+```bash
+sudo mount /dev/sda data
+```
 
 
 # Links
