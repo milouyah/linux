@@ -1,6 +1,6 @@
 # linux
 
-## [java](https://githhub.com/milouyah/java)
+## [java](https://github.com/milouyah/java)
 ## [curl](./curl/README.md)
 ## [Samba](./samba/README.md)
 ## [Mount](./mount.md)
