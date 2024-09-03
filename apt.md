@@ -27,3 +27,33 @@
    - 만약 프록시 서버를 사용하고 있다면, 프록시 설정에 문제가 있어 리포지터리에 접근하지 못할 수도 있습니다. 이 경우, `/etc/apt/apt.conf` 파일을 확인하여 프록시 설정이 올바르게 되어 있는지 확인하세요.
 
 이러한 확인 작업을 거쳐 문제를 해결할 수 있습니다. 문제가 지속될 경우, 특정 에러 메시지를 기반으로 추가적인 조치를 취해야 할 수도 있습니다.
+
+# postgresqp update
+`sudo apt update`를 실행할 때 `ftp.postgresql.org not found` 오류가 발생하는 것은 `postgresql` 패키지 저장소가 더 이상 유효하지 않거나, 잘못된 URL이 설정된 경우에 발생할 수 있습니다. 이를 해결하려면 다음 단계를 따라 저장소 설정을 수정하거나 제거할 수 있습니다.
+
+1. **저장소 설정 파일 확인**:
+   `postgresql` 저장소가 설정된 파일을 찾아야 합니다. 보통 `/etc/apt/sources.list` 파일이나 `/etc/apt/sources.list.d/` 디렉토리 내의 파일에 저장소 설정이 들어 있습니다.
+
+   ```bash
+   sudo grep -r "postgresql" /etc/apt/sources.list /etc/apt/sources.list.d/
+   ```
+
+   이 명령어를 실행하면, `postgresql` 저장소가 설정된 파일과 그 줄이 출력됩니다.
+
+2. **문제가 되는 저장소 제거**:
+   찾은 파일을 열어 해당 줄을 주석 처리하거나 삭제합니다. 예를 들어, `/etc/apt/sources.list.d/pgdg.list` 파일에서 문제가 발견되었다면, 아래와 같이 파일을 편집합니다.
+
+   ```bash
+   sudo nano /etc/apt/sources.list.d/pgdg.list
+   ```
+
+   그 파일에서 `ftp.postgresql.org` 관련 줄을 찾아 주석 처리 (`#`을 줄 앞에 추가)하거나 삭제합니다.
+
+3. **패키지 리스트 업데이트**:
+   저장소 설정을 수정한 후 패키지 리스트를 업데이트합니다.
+
+   ```bash
+   sudo apt update
+   ```
+
+이 과정을 완료하면 더 이상 `ftp.postgresql.org not found` 오류 메시지가 나타나지 않아야 합니다.
