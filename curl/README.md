@@ -16,3 +16,10 @@ insecure
 # or
 cacert=/etc/ssl/certs/ca-certificates.crt
 ```
+
+# add export
+
+```
+export REQUESTS_CA_BUNDLE=~/crt/DigitalCity.crt
+
+```
